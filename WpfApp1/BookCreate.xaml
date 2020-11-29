@@ -1,0 +1,39 @@
+﻿<Page x:Class="BookSharing.BookCreate"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BookSharing"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="BookCreate">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+            <ColumnDefinition Width="600"></ColumnDefinition>
+            <ColumnDefinition Width="0.5*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <DataGridCell Background="#bfc3ba" BorderBrush="#bfc3ba" Grid.Column="0"/>
+        <DataGridCell Background="#868a86" BorderBrush="#868a86" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <DataGridCell Background="#bfc3ba" BorderBrush="#bfc3ba" Grid.Column="3"/>
+
+        <Label Grid.Row="0" Grid.Column="1" Content="ISBN" Style="{StaticResource Lable}" FontSize="24" HorizontalAlignment="Right" Margin="0,5,0,0"/>
+        <TextBox Grid.Column="2" Style="{StaticResource TextBoox}" Background="#a9aca9"  Margin="5,7,5,0" Height="30" VerticalAlignment="Top" FontSize="20" />
+
+        <Label Grid.Row="0" Grid.Column="1" Content="ОПИСАНИЕ" Style="{StaticResource Lable}" FontSize="24" HorizontalAlignment="Right" Margin="0,40,0,0"/>
+        <TextBox Grid.Column="2" Style="{StaticResource TextBoox}" Background="#a9aca9"  Margin="5,40,5,0" Height="150" VerticalAlignment="Top" FontSize="20" TextWrapping="Wrap"/>
+
+        <Label Grid.Row="0" Grid.Column="1" Content="НА ОБМЕН" Style="{StaticResource Lable}" FontSize="24" HorizontalAlignment="Right" Margin="0,190,0,0"/>
+        <TextBox Grid.Column="2" Style="{StaticResource TextBoox}" Background="#a9aca9"  Margin="5,193,5,0" Height="100" VerticalAlignment="Top" FontSize="20" TextWrapping="Wrap"/>
+
+        <Button Content="ЗАГРУЗИТЬ ФОТО" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Style="{StaticResource Button}" HorizontalAlignment="Center" Height="50" Width="250" Margin="0,200,0,0" FontSize="20"/>
+        <Label Grid.Row="0" Grid.Column="1"  Grid.ColumnSpan="2" Content="ТЕКСТ СООБЩЕНИЯ" Style="{StaticResource Lable}" FontSize="20" HorizontalAlignment="Center" Margin="0,350,0,0"/>
+        <Button Content="ДОБАВИТЬ" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Style="{StaticResource Button}" HorizontalAlignment="Center" Height="50" Width="250" Margin="0,360,0,0" FontSize="24" />
+
+
+
+
+    </Grid>
+</Page>
