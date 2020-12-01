@@ -24,5 +24,40 @@ namespace BookSharing
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            SQLContol SQLControl = new SQLContol();
+            if (!string.IsNullOrEmpty(LoginTextBox.Text)&& !string.IsNullOrEmpty(PasswordTextBox.Text) && !string.IsNullOrEmpty(ConfirmationTextBox.Text) && !string.IsNullOrEmpty(EmailTextBox.Text))
+            {            
+                if (SQLControl.UniqLogin(LoginTextBox.Text))
+                {
+                    if (PasswordTextBox.Text==ConfirmationTextBox.Text)
+                    {
+                        if (SQLControl.UniqEmail(EmailTextBox.Text))
+                        {
+                            SQLControl.Registration(LoginTextBox.Text, PasswordTextBox.Text, EmailTextBox.Text);
+                            NavigationService.Navigate(new Uri("/EntryPage.xaml", UriKind.Relative));
+                        }
+                        else
+                        {
+                            ErrorLable.Content = "Этот Email уже используется";
+                        }
+                    }
+                    else
+                    {
+                        ErrorLable.Content = "Пароли не совпадают";
+                    }
+                }
+                else
+                {
+                    ErrorLable.Content = "Этот логин уже используется";
+                }
+            }
+            else
+            {
+                ErrorLable.Content = "Заполните пустые поля";
+            }
+        }
     }
 }

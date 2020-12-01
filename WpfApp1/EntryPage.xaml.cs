@@ -18,23 +18,7 @@ using System.Data.SqlClient;
 
 namespace BookSharing
 {
-    class Entry
-    {
-        
-        
-        public static bool LoginPasswordCheck(string login, string password) 
-        {
-            return true;
-            //return false;
-        }
-        
-        public static bool Admincheck(string login)
-        {
-            //return true;
-            return false;
-        }
-    }
-
+   
     public partial class EntryPage : Page
     {
                 
