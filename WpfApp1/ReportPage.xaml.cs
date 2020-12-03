@@ -28,10 +28,10 @@ namespace BookSharing
 
             Books = new ObservableCollection<Book>
             {
-            new Book {ImagePath="logo.png", Title="Тест", Author="Тест", Genrie="Тест" },
-            new Book {ImagePath="logo.png", Title="Тест", Author="Тест", Genrie="Тест" },
-            new Book {ImagePath="logo.png", Title="Тест", Author="Тест", Genrie="Тест" },
-            new Book {ImagePath="logo.png", Title="Тест", Author="Тест", Genrie="Тест"}
+            new Book {ImagePath="logo.png", Title="Тест", Description="Тест" },
+            new Book {ImagePath="logo.png", Title="Тест", Description="Тест" },
+            new Book {ImagePath="logo.png", Title="Тест", Description="Тест" },
+            new Book {ImagePath="logo.png", Title="Тест", Description="Тест"}
             };
             BooksList.ItemsSource = Books;
         }

@@ -1,13 +1,9 @@
 ﻿using System;
 using System.Data.SqlClient;
+using System.Collections.ObjectModel;
 
 namespace BookSharing
 {
-    /// <summary>
-    /// Логика взаимодействия для EntryPage.xaml
-    /// </summary>
-    /// 
-
 
     public class SQLContol
     {
@@ -109,9 +105,67 @@ namespace BookSharing
             command.ExecuteNonQuery();
         }
 
+        public ObservableCollection<Book> GetBookList()
+        {
+            ObservableCollection<Book> Books = new ObservableCollection<Book>();
+
+            sqlConnection = new SqlConnection(connectionString);
+            sqlConnection.Open();
+
+            SqlCommand command = new SqlCommand("select * from [UserBook] INNER JOIN [Book] on [Book].ISBN = [UserBook].ISBN order by Date", sqlConnection);
+            sqlReader = command.ExecuteReader();
+            while (sqlReader.Read())
+            {
+                Books.Add(new Book {id= Convert.ToInt32(sqlReader["Id"]), ImagePath = Convert.ToString(sqlReader["Image"]), Title = Convert.ToString(sqlReader["Name"]), Description= Convert.ToString(sqlReader["Description"]) });                
+            }
+
+            return Books;
+        }
+
+        public BookForPage GetBookForPage(int id)
+        {
+            BookForPage Book = new BookForPage();
+
+            sqlConnection = new SqlConnection(connectionString);
+            sqlConnection.Open();
+
+            SqlCommand command = new SqlCommand("select * from [UserBook] INNER JOIN [Book] on [Book].ISBN = [UserBook].ISBN INNER JOIN [User] on [UserBook].[User] = [User].Login where [UserBook].[Id] = @id", sqlConnection);
+            command.Parameters.AddWithValue("id", id);
+            sqlReader = command.ExecuteReader();
+
+            sqlReader.Read();
+
+            Book.Title = Convert.ToString(sqlReader["Name"]);
+            Book.Genre = Convert.ToString(sqlReader["Genre"]);
+            Book.ImagePath = Convert.ToString(sqlReader["Image"]);
+            Book.Description = Convert.ToString(sqlReader["Description"]);
+            Book.User = Convert.ToString(sqlReader["User"]);
+            Book.Email = Convert.ToString(sqlReader["Email"]);
+            Book.Authors = GetAuthorBook(Convert.ToString(sqlReader["ISBN"]));
 
 
+            return Book;
+        }
 
+        string GetAuthorBook(string ISBN) 
+        {
+            string Author="";
+
+            sqlConnection = new SqlConnection(connectionString);
+            sqlConnection.Open();
+
+            SqlCommand command = new SqlCommand("select Author from [BookAuthor] where [Book] = @Book", sqlConnection);
+            command.Parameters.AddWithValue("Book", ISBN);
+            sqlReader = command.ExecuteReader();
+
+            while (sqlReader.Read())
+            {
+                Author += Convert.ToString(sqlReader["Author"]) + " ";
+            }
+
+
+            return Author;
+        }
 
     }
 }

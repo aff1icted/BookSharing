@@ -21,11 +21,12 @@
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal" >
                         <Image Height="100" Width="50" Source="{Binding Path=ImagePath}"/>
-                        <StackPanel Width="200">
+                        <StackPanel Width="600">
                             <Label Content="{Binding Path=Title}"/>
-                            <Label Content="{Binding Path=Title}"/>
-                            <Label Content="{Binding Path=Title}"/>
-                        </StackPanel>  
+                            <TextBlock Text="{Binding Path=Description}" TextWrapping="Wrap"/>
+                        </StackPanel>
+                        <Label Content="{Binding Path=id}" Visibility="Hidden"/>
+
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>

@@ -24,19 +24,19 @@
         <DataGridCell Background="#868a86" BorderBrush="#868a86" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="2"/>
         <DataGridCell Background="#bfc3ba" BorderBrush="#bfc3ba" Grid.Column="3" Grid.Row="0" Grid.RowSpan="2"/>
 
-        <Image Grid.Column="1" Grid.Row="0" Source="logo.png"/>
+        <Image x:Name="BookImage" Grid.Column="1" Grid.Row="0" Source="logo.png"/>
         
-        <Label Content="ЖАНР:" Grid.Row="1" Grid.Column="1" Style="{StaticResource Lable}" FontSize="24" />
+        <Label x:Name="GenreLable" Content="ЖАНР:" Grid.Row="1" Grid.Column="1" Style="{StaticResource Lable}" FontSize="24" />
         <Label Content="НА ОБМЕН" Grid.Row="1" Grid.Column="1" Style="{StaticResource Lable}" FontSize="24" HorizontalAlignment="Center" Margin="0,30,0,0"/>
-        <TextBlock Grid.Row="1" Grid.Column="1" Margin="5,70,5,40"  Style="{StaticResource TextBlock}" FontSize="20" Text="На обмен на обмен на обмен"/>
+        <TextBlock x:Name="TredeBlock" Grid.Row="1" Grid.Column="1" Margin="5,70,5,40"  Style="{StaticResource TextBlock}" FontSize="20" Text="На обмен на обмен на обмен"/>
 
-        <TextBlock Grid.Row="0" Grid.Column="2" Text="Название Название Название Название Название Название Название" Style="{StaticResource TextBlock}" FontSize="24" Margin="5,5,5,0" TextWrapping="Wrap"/>
+        <TextBlock x:Name="TitleTextBox" Grid.Row="0" Grid.Column="2" Text="Название Название Название Название Название Название Название" Style="{StaticResource TextBlock}" FontSize="24" Margin="5,5,5,0" TextWrapping="Wrap"/>
         <Label Content="АВТОРЫ" Grid.Row="0" Grid.Column="2" Style="{StaticResource Lable}" FontSize="24" HorizontalAlignment="Center" Margin="0,80,0,0"/>
-        <TextBlock Grid.Row="0" Grid.Column="2" Text="Автор Автор Автор Автор Автор Автор Автор" Style="{StaticResource TextBlock}" FontSize="20" Margin="5,110,5,5" TextWrapping="Wrap"/>
+        <TextBlock x:Name="AuthorBlock" Grid.Row="0" Grid.Column="2" Text="Автор Автор Автор Автор Автор Автор Автор" Style="{StaticResource TextBlock}" FontSize="20" Margin="5,110,5,5" TextWrapping="Wrap"/>
 
         <Label Content="ОПИСАНИЕ" Grid.Row="1" Grid.Column="2" Style="{StaticResource Lable}" FontSize="24" HorizontalAlignment="Center"/>
-        <TextBlock Grid.Row="1" Grid.Column="2" Text="Автор Автор Автор Автор Автор Автор Автор" Style="{StaticResource TextBlock}" FontSize="20" Margin="5,30,5,40" TextWrapping="Wrap"/>
-        <Label Content="EMAIL ПОЛЬЗОВАТЕЛЯ" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Style="{StaticResource Lable}" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+        <TextBlock x:Name="DescriptionBlock" Grid.Row="1" Grid.Column="2" Text="Автор Автор Автор Автор Автор Автор Автор" Style="{StaticResource TextBlock}" FontSize="20" Margin="5,30,5,40" TextWrapping="Wrap"/>
+        <Label x:Name="EmailLable" Content="EMAIL ПОЛЬЗОВАТЕЛЯ" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Style="{StaticResource Lable}" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
 
 
 

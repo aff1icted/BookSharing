@@ -20,9 +20,21 @@ namespace BookSharing
     /// </summary>
     public partial class BookPage : Page
     {
-        public BookPage()
+        public BookPage(int id)
         {
             InitializeComponent();
+            
+
+            SQLContol SQLContol = new SQLContol();
+            BookForPage bookForPage= SQLContol.GetBookForPage(id);
+            TitleTextBox.Text = bookForPage.Title;
+            //BookImage.Source = new ImageSourceConverter().ConvertFromString(bookForPage.ImagePath) as ImageSource;
+            AuthorBlock.Text= bookForPage.Authors;
+            GenreLable.Content+= bookForPage.Genre;
+            TredeBlock.Text = bookForPage.Trade;
+            DescriptionBlock.Text = bookForPage.Description;
+            EmailLable.Content = bookForPage.Email;
+
         }
     }
 }
