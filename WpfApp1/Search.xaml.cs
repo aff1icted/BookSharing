@@ -20,9 +20,15 @@ namespace BookSharing
     /// </summary>
     public partial class Search : Page
     {
-        public Search()
+        public Search(string user)
         {
             InitializeComponent();
+            UserLable.Content = user;
+            SQLContol SQLContol = new SQLContol();
+
+            AuthorBox.ItemsSource = SQLContol.GetAuthorList();
+            GenreBox.ItemsSource = SQLContol.GetGenreList();  
+
         }
     }
 }

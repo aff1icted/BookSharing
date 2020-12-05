@@ -20,20 +20,23 @@
         <DataGridCell Background="#bfc3ba" BorderBrush="#bfc3ba" Grid.Column="3"/>
 
         <Label Grid.Row="0" Grid.Column="1" Content="ISBN" Style="{StaticResource Lable}" FontSize="24" HorizontalAlignment="Right" Margin="0,5,0,0"/>
-        <TextBox Grid.Column="2" Style="{StaticResource TextBoox}" Background="#a9aca9"  Margin="5,7,5,0" Height="30" VerticalAlignment="Top" FontSize="20" />
+        <TextBox x:Name="ISBNTextBox" Grid.Column="2" Style="{StaticResource TextBoox}" Background="#a9aca9"  Margin="5,7,5,0" Height="30" VerticalAlignment="Top" FontSize="20" TextChanged="TextBox_TextChanged" />
 
         <Label Grid.Row="0" Grid.Column="1" Content="ОПИСАНИЕ" Style="{StaticResource Lable}" FontSize="24" HorizontalAlignment="Right" Margin="0,40,0,0"/>
-        <TextBox Grid.Column="2" Style="{StaticResource TextBoox}" Background="#a9aca9"  Margin="5,40,5,0" Height="150" VerticalAlignment="Top" FontSize="20" TextWrapping="Wrap"/>
+        <TextBox x:Name="DescriptionTextBox" Grid.Column="2" Style="{StaticResource TextBoox}" Background="#a9aca9"  Margin="5,40,5,0" Height="150" VerticalAlignment="Top" FontSize="20" TextWrapping="Wrap"/>
 
         <Label Grid.Row="0" Grid.Column="1" Content="НА ОБМЕН" Style="{StaticResource Lable}" FontSize="24" HorizontalAlignment="Right" Margin="0,190,0,0"/>
-        <TextBox Grid.Column="2" Style="{StaticResource TextBoox}" Background="#a9aca9"  Margin="5,193,5,0" Height="100" VerticalAlignment="Top" FontSize="20" TextWrapping="Wrap"/>
-
-        <Button Content="ЗАГРУЗИТЬ ФОТО" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Style="{StaticResource Button}" HorizontalAlignment="Center" Height="50" Width="250" Margin="0,200,0,0" FontSize="20"/>
-        <Label Grid.Row="0" Grid.Column="1"  Grid.ColumnSpan="2" Content="ТЕКСТ СООБЩЕНИЯ" Style="{StaticResource Lable}" FontSize="20" HorizontalAlignment="Center" Margin="0,350,0,0"/>
-        <Button Content="ДОБАВИТЬ" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Style="{StaticResource Button}" HorizontalAlignment="Center" Height="50" Width="250" Margin="0,360,0,0" FontSize="24" />
+        <TextBox x:Name="TradeTextBox" Grid.Column="2" Style="{StaticResource TextBoox}" Background="#a9aca9"  Margin="5,193,5,0" Height="100" VerticalAlignment="Top" FontSize="20" TextWrapping="Wrap"/>
 
 
+        <StackPanel Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" HorizontalAlignment="Center" Margin="0,300,0,0" >
+            <Button Content="ЗАГРУЗИТЬ ФОТО" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Style="{StaticResource Button}" HorizontalAlignment="Center" Height="30" Width="250"  FontSize="20" Click="Button_Click_1"/>
+            <Label x:Name="ErrorLable" Grid.Row="0" Grid.Column="1"  Grid.ColumnSpan="2" Content="" Style="{StaticResource Lable}" FontSize="20" HorizontalAlignment="Center"/>
+            <Button Content="ДОБАВИТЬ" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Style="{StaticResource Button}" HorizontalAlignment="Center" Height="30" Width="250" FontSize="20" Click="Button_Click" />
+        </StackPanel>
 
+        <Label x:Name="UserLable" Visibility="Hidden"/>
+        <Label x:Name="ImageLable" Visibility="Hidden"/>
 
     </Grid>
 </Page>

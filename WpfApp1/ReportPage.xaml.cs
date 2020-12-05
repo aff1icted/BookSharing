@@ -22,23 +22,19 @@ namespace BookSharing
     public partial class ReportPage : Page
     {
         public ObservableCollection<Book> Books;
-        public ReportPage()
+        public ReportPage(string user)
         {
             InitializeComponent();
+            SQLContol SQLContol = new SQLContol();
+            UserLable.Content = user;
 
-            Books = new ObservableCollection<Book>
-            {
-            new Book {ImagePath="logo.png", Title="Тест", Description="Тест" },
-            new Book {ImagePath="logo.png", Title="Тест", Description="Тест" },
-            new Book {ImagePath="logo.png", Title="Тест", Description="Тест" },
-            new Book {ImagePath="logo.png", Title="Тест", Description="Тест"}
-            };
-            BooksList.ItemsSource = Books;
+            BooksList.ItemsSource = SQLContol.GetReportList();
         }
 
         private void BooksList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            Book p = (Book)BooksList.SelectedItem;
+            NavigationService.Navigate(new BookPage(p.id, Convert.ToString(UserLable.Content)));
         }
     }
 }

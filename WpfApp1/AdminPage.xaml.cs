@@ -20,10 +20,11 @@ namespace BookSharing
     /// </summary>
     public partial class AdminPage : Page
     {
-        public AdminPage()
+        public AdminPage(string user)
         {
             InitializeComponent();
-            PageFrame.Navigate(new Uri("/ReportPage.xaml", UriKind.Relative));
+            UserNameLable.Content = user;
+            PageFrame.Navigate(new ReportPage(user));
         }
        
     }

@@ -26,25 +26,28 @@ namespace BookSharing
     public partial class MyBookList : Page
     {
         public ObservableCollection<Book> Books;
-        public MyBookList()
+        public MyBookList(string user)
         {
             InitializeComponent();
+            UserLable.Content = user;
 
 
-            Books = new ObservableCollection<Book>
-            {
-            new Book {ImagePath="logo.png", Title="Тест", Description="Тест" },
-            new Book {ImagePath="logo.png", Title="Тест", Description="Тест" },
-            new Book {ImagePath="logo.png", Title="Тест", Description="Тест" },
-            new Book {ImagePath="logo.png", Title="Тест", Description="Тест"}
-            };
-            BooksList.ItemsSource = Books;
+            SQLContol SQLContol = new SQLContol();
+
+
+            BooksList.ItemsSource = SQLContol.GetUserBookList(user);
 
         }
 
         private void BooksList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            Book p = (Book)BooksList.SelectedItem;
+            NavigationService.Navigate(new BookPage(p.id, Convert.ToString(UserLable.Content)));
+        }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {            
+            NavigationService.Navigate(new BookCreate(Convert.ToString(UserLable.Content)));
         }
     }
 }

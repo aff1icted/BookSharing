@@ -22,13 +22,15 @@
 
         <DataGridCell Background="#bfc3ba" BorderBrush="#bfc3ba" Grid.Column="0" Grid.Row="0" Grid.RowSpan="2"/>
         <DataGridCell Background="#868a86" BorderBrush="#868a86" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="0" Grid.RowSpan="2"/>
+
         <DataGridCell Background="#bfc3ba" BorderBrush="#bfc3ba" Grid.Column="3" Grid.Row="0" Grid.RowSpan="2"/>
 
-        <Image x:Name="BookImage" Grid.Column="1" Grid.Row="0" Source="logo.png"/>
+        <Image x:Name="BookImage" Grid.Column="1" Grid.Row="0" Source="logo.png" MouseLeftButtonDown="BookImage_MouseLeftButtonDown"/>
         
         <Label x:Name="GenreLable" Content="ЖАНР:" Grid.Row="1" Grid.Column="1" Style="{StaticResource Lable}" FontSize="24" />
         <Label Content="НА ОБМЕН" Grid.Row="1" Grid.Column="1" Style="{StaticResource Lable}" FontSize="24" HorizontalAlignment="Center" Margin="0,30,0,0"/>
         <TextBlock x:Name="TredeBlock" Grid.Row="1" Grid.Column="1" Margin="5,70,5,40"  Style="{StaticResource TextBlock}" FontSize="20" Text="На обмен на обмен на обмен"/>
+        <TextBox x:Name="TredeBox" Grid.Row="1" Grid.Column="1" Margin="5,70,5,40"  Style="{StaticResource TextBoox}" FontSize="20" Text="На обмен на обмен на обмен" Visibility="Hidden"/>
 
         <TextBlock x:Name="TitleTextBox" Grid.Row="0" Grid.Column="2" Text="Название Название Название Название Название Название Название" Style="{StaticResource TextBlock}" FontSize="24" Margin="5,5,5,0" TextWrapping="Wrap"/>
         <Label Content="АВТОРЫ" Grid.Row="0" Grid.Column="2" Style="{StaticResource Lable}" FontSize="24" HorizontalAlignment="Center" Margin="0,80,0,0"/>
@@ -36,7 +38,17 @@
 
         <Label Content="ОПИСАНИЕ" Grid.Row="1" Grid.Column="2" Style="{StaticResource Lable}" FontSize="24" HorizontalAlignment="Center"/>
         <TextBlock x:Name="DescriptionBlock" Grid.Row="1" Grid.Column="2" Text="Автор Автор Автор Автор Автор Автор Автор" Style="{StaticResource TextBlock}" FontSize="20" Margin="5,30,5,40" TextWrapping="Wrap"/>
+        <TextBox x:Name="DescriptionBox" Grid.Row="1" Grid.Column="2" Text="Автор Автор Автор Автор Автор Автор Автор" Style="{StaticResource TextBoox}" FontSize="20" Margin="5,30,5,40" TextWrapping="Wrap" Visibility="Hidden"/>
         <Label x:Name="EmailLable" Content="EMAIL ПОЛЬЗОВАТЕЛЯ" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Style="{StaticResource Lable}" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Bottom"/>
+        <StackPanel x:Name="ButtonStack" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Height="30"  HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="300" Orientation="Horizontal" Visibility="Hidden" >
+            <Button x:Name="Savebutton" Content="СОХРАНИТЬ" Style="{StaticResource Button}" Width="150" Click="Savebutton_Click" />
+            <Button x:Name="DeleteButton" Content="УДАЛИТЬ" Style="{StaticResource Button}" Width="150" Click="DeleteButton_Click" />
+
+        </StackPanel>
+
+        <Label x:Name="UserLable" Visibility="Hidden"/>
+        <Label x:Name="IdLable" Visibility="Hidden"/>
+        <Label x:Name="ErrorLable" Content="Поля должны быть заполненны" Visibility="Hidden" Grid.Column="1" Grid.Row="1"  HorizontalAlignment="Left" VerticalAlignment="Bottom" Style="{StaticResource Lable}"/>
 
 
 

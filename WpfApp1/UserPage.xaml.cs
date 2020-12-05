@@ -20,20 +20,21 @@ namespace BookSharing
     /// </summary>
     public partial class UserPage : Page
     {
-        public UserPage()
+        public UserPage(string user)
         {
             InitializeComponent();
+            UserNameLable.Content = user;
             PageFrame.Navigate(new Uri("/BookList.xaml", UriKind.Relative));
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            PageFrame.Navigate(new Uri("/Search.xaml", UriKind.Relative));
+            PageFrame.Navigate(new Search(Convert.ToString(UserNameLable.Content)));
         }
 
         private void Label_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            PageFrame.Navigate(new Uri("/MyBookList.xaml", UriKind.Relative));
+        {            
+            PageFrame.Navigate(new MyBookList(Convert.ToString(UserNameLable.Content)));
         }
 
         private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)

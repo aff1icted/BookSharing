@@ -15,27 +15,26 @@
             <ColumnDefinition Width="0.5*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <DataGridCell Background="#bfc3ba" BorderBrush="#bfc3ba" Grid.Column="0" Grid.ColumnSpan="3"></DataGridCell>
+        <DataGridCell Background="#868a86" BorderBrush="#868a86" Grid.Column="1"></DataGridCell>
 
-        <ListBox x:Name="BooksList" SelectionChanged="BooksList_SelectionChanged" Grid.Column="1" Background="#868a86">
+
+
+
+        <ListBox x:Name="BooksList" SelectionChanged="BooksList_SelectionChanged" Grid.Column="1" Background="#868a86" Margin="0,50,0,0" BorderBrush="#868a86">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal" >
                         <Image Height="100" Width="50" Source="{Binding Path=ImagePath}"/>
-                        <StackPanel Width="200">
+                        <StackPanel Width="600">
                             <Label Content="{Binding Path=Title}"/>
-                            <Label Content="{Binding Path=Title}"/>
-                            <Label Content="{Binding Path=Title}"/>
+                            <TextBlock Text="{Binding Path=Description}" TextWrapping="Wrap"/>
                         </StackPanel>
-
-                        <StackPanel Orientation="Horizontal" FlowDirection="RightToLeft" Width="500" >
-                            <Button Height="50" Content="button"/>
-                            <Button Height="50" Content="button"/>
-                        </StackPanel>
-
-
+                        <Label Content="{Binding Path=id}" Visibility="Hidden"/>
                     </StackPanel>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
+        <Label x:Name="UserLable" Visibility="Hidden"/>
+        <Button Grid.ColumnSpan="2" Content="ДОБАВИТЬ КНИГУ" HorizontalAlignment="Center"  VerticalAlignment="Top" Width="250" Height="30" Style="{StaticResource Button}" Margin="0,5,0,0" FontSize="24" Click="Button_Click" />
     </Grid>
 </Page>

@@ -28,6 +28,7 @@
         
        
         <Image Grid.Row="0" Grid.Column="0" Source="logo.png" Height="50" HorizontalAlignment="Left" MouseLeftButtonDown="Image_MouseLeftButtonDown"/>
+        <Label Grid.Row="0" Grid.Column="0" Content="Username" x:Name="UserNameLable" VerticalContentAlignment="Center" Margin="50, 0,0,0" Style="{StaticResource Lable}" FontSize="20" />
         <Button Content="Поиск" Grid.Column="1"  VerticalAlignment="Center" HorizontalAlignment="Center" Width="200" Height="30" Style="{StaticResource Button}" FontSize="24" Click="Button_Click"/>
         <Label Content="МОИ КНИГИ" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource Lable}" FontSize="22" FontWeight="Bold" Margin="0,0,10,0" MouseLeftButtonDown="Label_MouseLeftButtonDown" />
         <Frame Name="PageFrame" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"></Frame>

@@ -34,11 +34,11 @@ namespace BookSharing
             {
                 if (SQLControl.RightsCheck(LoginTextBox.Text)=="admin")
                 {
-                    NavigationService.Navigate(new Uri("/AdminPage.xaml", UriKind.Relative));
+                    NavigationService.Navigate(new AdminPage(LoginTextBox.Text));
                 }
                 else
                 {
-                    NavigationService.Navigate(new Uri("/UserPage.xaml", UriKind.Relative));
+                    NavigationService.Navigate(new UserPage(LoginTextBox.Text));
                 }
 
             }
