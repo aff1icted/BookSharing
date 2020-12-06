@@ -361,5 +361,56 @@ namespace BookSharing
             return Genre;
         }
 
+
+        public ObservableCollection<Book> SearchBook(string ISBN,string title,string genre, string author)
+        {
+            ObservableCollection<Book> Books = new ObservableCollection<Book>();
+
+            sqlConnection = new SqlConnection(connectionString);
+            sqlConnection.Open();
+            string request = "SELECT * FROM [UserBook] INNER JOIN [Book] on [Book].ISBN = [UserBook].ISBN INNER JOIN [BookAuthor] on [Book].ISBN = [BookAuthor].[Book]";
+            if (string.IsNullOrEmpty(ISBN))
+            {
+
+                if (!string.IsNullOrEmpty(title))
+                {
+                    request += "WHERE [Book].[Name]=@Title";
+                }
+                else
+                {
+                    if (!string.IsNullOrEmpty(genre))
+                    {
+                        request += "WHERE Genre=@Genre";
+                        if (!string.IsNullOrEmpty(author))
+                        {
+                            request += " AND Author=@Author";
+                        }
+                    }
+                    else
+                    {
+                        request += "WHERE Author=@Author";
+                    }
+                }   
+            }
+            else
+            {
+                request += "WHERE [UserBook].ISBN=@ISBN";
+            }
+
+
+            SqlCommand command = new SqlCommand(request, sqlConnection);
+            command.Parameters.AddWithValue("ISBN", ISBN);
+            command.Parameters.AddWithValue("Title", title);
+            command.Parameters.AddWithValue("Genre", genre);
+            command.Parameters.AddWithValue("Author", author);
+            sqlReader = command.ExecuteReader();
+            while (sqlReader.Read())
+            {
+               Books.Add(new Book { id = Convert.ToInt32(sqlReader["Id"]), ImagePath = Convert.ToString(sqlReader["Image"]), Title = Convert.ToString(sqlReader["Name"]), Description = Convert.ToString(sqlReader["Description"]) });
+            }
+
+            return Books;
+        }
+
     }
 }

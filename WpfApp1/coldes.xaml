@@ -41,6 +41,13 @@
         <Setter Property="FontFamily" Value="Arial"/>
         <Setter Property="Foreground" Value="#60495a"/>
     </Style>
+
+    <Style x:Key="ComboBox" TargetType="ComboBox">
+        <Setter Property="FontFamily" Value="Arial"/>
+        <Setter Property="Foreground" Value="#60495a"/>
+        <Setter Property="Background" Value="#a9aca9"/>
+        <Setter Property="OpacityMask" Value="#a9aca9"/>
+    </Style>
             
 
 </ResourceDictionary>

@@ -30,5 +30,19 @@ namespace BookSharing
             GenreBox.ItemsSource = SQLContol.GetGenreList();  
 
         }
+
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(ISBNBox.Text) || !string.IsNullOrEmpty(TitleBox.Text) || !string.IsNullOrEmpty(GenreBox.Text) || !string.IsNullOrEmpty(AuthorBox.Text))
+            {
+                SQLContol SQLContol = new SQLContol();
+                NavigationService.Navigate(new BookList(SQLContol.SearchBook(ISBNBox.Text, TitleBox.Text, GenreBox.Text, AuthorBox.Text)));
+            }
+            else
+            {
+                ErrorLable.Visibility = Visibility.Visible;
+            }
+
+        }
     }
 }

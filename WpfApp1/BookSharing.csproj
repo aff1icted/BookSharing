@@ -84,9 +84,6 @@
     <Compile Include="BookPage.xaml.cs">
       <DependentUpon>BookPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GuestPage.xaml.cs">
-      <DependentUpon>GuestPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="MyBookList.xaml.cs">
       <DependentUpon>MyBookList.xaml</DependentUpon>
     </Compile>
@@ -124,10 +121,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="EntryPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="GuestPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
