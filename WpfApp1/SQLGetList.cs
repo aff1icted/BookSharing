@@ -13,7 +13,7 @@ namespace BookSharing
             sqlConnection = new SqlConnection(connectionString);
             sqlConnection.Open();
 
-            SqlCommand command = new SqlCommand("select * from [UserBook] INNER JOIN [Book] on [Book].ISBN = [UserBook].ISBN order by Date", sqlConnection);
+            SqlCommand command = new SqlCommand("select * from [UserBook] INNER JOIN [Book] on [Book].ISBN = [UserBook].ISBN order by Date DESC", sqlConnection);
             sqlReader = command.ExecuteReader();
             while (sqlReader.Read())
             {
@@ -30,7 +30,7 @@ namespace BookSharing
             sqlConnection = new SqlConnection(connectionString);
             sqlConnection.Open();
 
-            SqlCommand command = new SqlCommand("select * from [UserBook] INNER JOIN [Book] on [Book].ISBN = [UserBook].ISBN where [UserBook].[User] = @User order by Date", sqlConnection);
+            SqlCommand command = new SqlCommand("select * from [UserBook] INNER JOIN [Book] on [Book].ISBN = [UserBook].ISBN where [UserBook].[User] = @User order by Date DESC", sqlConnection);
             command.Parameters.AddWithValue("User", user);
             sqlReader = command.ExecuteReader();
             while (sqlReader.Read())
