@@ -64,8 +64,8 @@ namespace BookSharing
             ObservableCollection<Book> Books = new ObservableCollection<Book>();
 
             sqlConnection = new SqlConnection(connectionString);
-            sqlConnection.Open();
-            string request = "SELECT * FROM [UserBook] INNER JOIN [Book] on [Book].ISBN = [UserBook].ISBN INNER JOIN [BookAuthor] on [Book].ISBN = [BookAuthor].[Book]";
+            sqlConnection.Open();            
+            string request = "SELECT [UserBook].[Id], Image, Description, Name FROM [UserBook] INNER JOIN [Book] on [Book].ISBN = [UserBook].ISBN INNER JOIN [BookAuthor] on [Book].ISBN = [BookAuthor].[Book]";
             if (string.IsNullOrEmpty(ISBN))
             {
 
@@ -94,6 +94,7 @@ namespace BookSharing
                 request += "WHERE [UserBook].ISBN=@ISBN";
             }
 
+            request += " GROUP BY [UserBook].[Id], Image, Description, Name ";
 
             SqlCommand command = new SqlCommand(request, sqlConnection);
             command.Parameters.AddWithValue("ISBN", ISBN);
