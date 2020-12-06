@@ -25,8 +25,8 @@ namespace BookSharing
         {
             InitializeComponent();           
 
-            SQLContol SQLContol = new SQLContol();
-            BookForPage bookForPage= SQLContol.GetBookForPage(id);
+            SQLBook SQLBook = new SQLBook();
+            BookForPage bookForPage= SQLBook.GetBookForPage(id);
             TitleTextBox.Text = bookForPage.Title;
             BookImage.Source = new BitmapImage(new Uri(bookForPage.ImagePath));
             AuthorBlock.Text= bookForPage.Authors;
@@ -45,8 +45,8 @@ namespace BookSharing
         {
             InitializeComponent();
 
-            SQLContol SQLContol = new SQLContol();
-            BookForPage bookForPage = SQLContol.GetBookForPage(id);
+            SQLBook SQLBook = new SQLBook();
+            BookForPage bookForPage = SQLBook.GetBookForPage(id);
             TitleTextBox.Text = bookForPage.Title;
             BookImage.Source = new BitmapImage(new Uri(bookForPage.ImagePath));
             AuthorBlock.Text = bookForPage.Authors;
@@ -66,9 +66,9 @@ namespace BookSharing
 
         private void DeleteButton_Click(object sender, RoutedEventArgs e)
         {
-            SQLContol SQLContol = new SQLContol();
-            SQLContol.DeleteUserBook(Convert.ToInt32(IdLable.Content));
-            if (SQLContol.RightsCheck(Convert.ToString(UserLable.Content)) == "admin")
+            SQLBook SQLBook = new SQLBook();
+            SQLBook.DeleteUserBook(Convert.ToInt32(IdLable.Content));
+            if (SQLBook.RightsCheck(Convert.ToString(UserLable.Content)) == "admin")
             {
                 NavigationService.Navigate(new ReportPage(Convert.ToString(UserLable.Content)));
             }
@@ -92,11 +92,11 @@ namespace BookSharing
 
         private void Savebutton_Click(object sender, RoutedEventArgs e)
         {
-            SQLContol SQLContol = new SQLContol();
+            SQLBook SQLBook = new SQLBook();
             if (!string.IsNullOrEmpty(DescriptionBox.Text) && !string.IsNullOrEmpty(TredeBox.Text))
             {
-                SQLContol.BookUpdate(Convert.ToString(BookImage.Source), Convert.ToString(DescriptionBox.Text), Convert.ToString(TredeBox.Text),Convert.ToInt32(IdLable.Content), Convert.ToString(UserLable.Content));
-                if (SQLContol.RightsCheck(Convert.ToString(UserLable.Content))=="admin")
+                SQLBook.BookUpdate(Convert.ToString(BookImage.Source), Convert.ToString(DescriptionBox.Text), Convert.ToString(TredeBox.Text),Convert.ToInt32(IdLable.Content), Convert.ToString(UserLable.Content));
+                if (SQLBook.RightsCheck(Convert.ToString(UserLable.Content))=="admin")
                 {
                     NavigationService.Navigate(new ReportPage(Convert.ToString(UserLable.Content)));
                 }

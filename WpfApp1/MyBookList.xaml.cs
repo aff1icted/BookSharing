@@ -32,10 +32,10 @@ namespace BookSharing
             UserLable.Content = user;
 
 
-            SQLContol SQLContol = new SQLContol();
+            SQLGetList SQLGetList = new SQLGetList();
 
 
-            BooksList.ItemsSource = SQLContol.GetUserBookList(user);
+            BooksList.ItemsSource = SQLGetList.GetUserBookList(user);
 
         }
 

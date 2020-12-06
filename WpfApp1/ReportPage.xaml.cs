@@ -25,10 +25,10 @@ namespace BookSharing
         public ReportPage(string user)
         {
             InitializeComponent();
-            SQLContol SQLContol = new SQLContol();
+            SQLGetList SQLGetList = new SQLGetList();
             UserLable.Content = user;
 
-            BooksList.ItemsSource = SQLContol.GetReportList();
+            BooksList.ItemsSource = SQLGetList.GetReportList();
         }
 
         private void BooksList_SelectionChanged(object sender, SelectionChangedEventArgs e)

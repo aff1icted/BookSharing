@@ -96,7 +96,12 @@
     <Compile Include="Search.xaml.cs">
       <DependentUpon>Search.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SQLBook.cs" />
     <Compile Include="SQLContol.cs" />
+    <Compile Include="SQLGetList.cs" />
+    <Compile Include="SQLlogin.cs" />
+    <Compile Include="SQLRegestration.cs" />
+    <Compile Include="SQLReport.cs" />
     <Compile Include="UserPage.xaml.cs">
       <DependentUpon>UserPage.xaml</DependentUpon>
     </Compile>

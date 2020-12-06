@@ -23,16 +23,15 @@ namespace BookSharing
         public BookList()
         {
             InitializeComponent();
-            SQLContol SQLContol = new SQLContol();
+            SQLGetList SQLGetList = new SQLGetList();
 
 
-            BooksList.ItemsSource = SQLContol.GetBookList();
+            BooksList.ItemsSource = SQLGetList.GetBookList();
         }
 
         public BookList(ObservableCollection<Book> books)
         {
-            InitializeComponent();
-            SQLContol SQLContol = new SQLContol();
+            InitializeComponent();        
 
 
             BooksList.ItemsSource = books;

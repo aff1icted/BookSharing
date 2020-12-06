@@ -27,16 +27,16 @@ namespace BookSharing
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            SQLContol SQLControl = new SQLContol();
+            SQLRegestration SQLRegestration = new SQLRegestration();
             if (!string.IsNullOrEmpty(LoginTextBox.Text)&& !string.IsNullOrEmpty(PasswordTextBox.Text) && !string.IsNullOrEmpty(ConfirmationTextBox.Text) && !string.IsNullOrEmpty(EmailTextBox.Text))
             {            
-                if (SQLControl.UniqLogin(LoginTextBox.Text))
+                if (SQLRegestration.UniqLogin(LoginTextBox.Text))
                 {
                     if (PasswordTextBox.Text==ConfirmationTextBox.Text)
                     {
-                        if (SQLControl.UniqEmail(EmailTextBox.Text))
+                        if (SQLRegestration.UniqEmail(EmailTextBox.Text))
                         {
-                            SQLControl.Registration(LoginTextBox.Text, PasswordTextBox.Text, EmailTextBox.Text);
+                            SQLRegestration.Registration(LoginTextBox.Text, PasswordTextBox.Text, EmailTextBox.Text);
                             NavigationService.Navigate(new Uri("/EntryPage.xaml", UriKind.Relative));
                         }
                         else

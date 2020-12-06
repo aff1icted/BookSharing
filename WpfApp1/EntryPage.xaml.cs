@@ -29,10 +29,11 @@ namespace BookSharing
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            SQLContol SQLControl = new SQLContol(); 
-            if (SQLControl.LoginPasswordCheck(LoginTextBox.Text, PasswordTextBox.Text))
+            SQLlogin SQLlogin = new SQLlogin(); 
+            
+            if (SQLlogin.LoginPasswordCheck(LoginTextBox.Text, PasswordTextBox.Text))
             {
-                if (SQLControl.RightsCheck(LoginTextBox.Text)=="admin")
+                if (SQLlogin.RightsCheck(LoginTextBox.Text)=="admin")
                 {
                     NavigationService.Navigate(new AdminPage(LoginTextBox.Text));
                 }

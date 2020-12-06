@@ -29,18 +29,18 @@ namespace BookSharing
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            SQLContol SQLContol = new SQLContol();
-            ErrorLable.Content = SQLContol.ISBNBook(Convert.ToString(ISBNTextBox.Text));
+            SQLBook SQLBook = new SQLBook();
+            ErrorLable.Content = SQLBook.ISBNBook(Convert.ToString(ISBNTextBox.Text));
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            SQLContol SQLContol = new SQLContol();
+            SQLBook SQLBook = new SQLBook();
             if (!string.IsNullOrEmpty(ISBNTextBox.Text) && !string.IsNullOrEmpty(DescriptionTextBox.Text)&&!string.IsNullOrEmpty(TradeTextBox.Text))
             {
-                if (SQLContol.ISBNBook(Convert.ToString(ISBNTextBox.Text))!= "Книга не найдена")
+                if (SQLBook.ISBNBook(Convert.ToString(ISBNTextBox.Text))!= "Книга не найдена")
                 {
-                    SQLContol.AddUserBook(Convert.ToString(UserLable.Content), Convert.ToString(ISBNTextBox.Text), Convert.ToString(DescriptionTextBox.Text), Convert.ToString(TradeTextBox.Text), Convert.ToString(ImageLable.Content));
+                    SQLBook.AddUserBook(Convert.ToString(UserLable.Content), Convert.ToString(ISBNTextBox.Text), Convert.ToString(DescriptionTextBox.Text), Convert.ToString(TradeTextBox.Text), Convert.ToString(ImageLable.Content));
                     NavigationService.Navigate(new MyBookList(Convert.ToString(UserLable.Content)));
                 }
                 else

@@ -24,10 +24,10 @@ namespace BookSharing
         {
             InitializeComponent();
             UserLable.Content = user;
-            SQLContol SQLContol = new SQLContol();
+            SQLGetList SQLGetList = new SQLGetList();
 
-            AuthorBox.ItemsSource = SQLContol.GetAuthorList();
-            GenreBox.ItemsSource = SQLContol.GetGenreList();  
+            AuthorBox.ItemsSource = SQLGetList.GetAuthorList();
+            GenreBox.ItemsSource = SQLGetList.GetGenreList();  
 
         }
 
@@ -35,8 +35,8 @@ namespace BookSharing
         {
             if (!string.IsNullOrEmpty(ISBNBox.Text) || !string.IsNullOrEmpty(TitleBox.Text) || !string.IsNullOrEmpty(GenreBox.Text) || !string.IsNullOrEmpty(AuthorBox.Text))
             {
-                SQLContol SQLContol = new SQLContol();
-                NavigationService.Navigate(new BookList(SQLContol.SearchBook(ISBNBox.Text, TitleBox.Text, GenreBox.Text, AuthorBox.Text)));
+                SQLGetList SQLGetList = new SQLGetList();
+                NavigationService.Navigate(new BookList(SQLGetList.SearchBook(ISBNBox.Text, TitleBox.Text, GenreBox.Text, AuthorBox.Text)));
             }
             else
             {
